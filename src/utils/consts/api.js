@@ -1,5 +1,5 @@
 import axios from 'axios';
+export const API_URL = 'http://apilayer.net/api/validate';
+const API_KEY = 'e39dd657577428e29c7acdd66835dc1a'
 
-export function setPhoneNo(phoneNo) {
-  return axios.get(`http://apilayer.net/api/validate?access_key=e39dd657577428e29c7acdd66835dc1a&number=${phoneNo}`)
-}
+export const setPhoneNo = (phoneNo, phoneRes) => axios.get(`${API_URL}?access_key=${API_KEY}&number=${phoneNo}`, { ...phoneRes });
