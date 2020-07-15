@@ -68,7 +68,7 @@ const NumValidation = (props) => {
                                 size="small"
                                 value={phone}
                                 onChange={({ target: { value } }) => setPhone(value)}
-                                onBlur={setNum(phone)}
+                                onBlur={()=>setNum(phone)}
                             />
                         </div>
                     </div>
