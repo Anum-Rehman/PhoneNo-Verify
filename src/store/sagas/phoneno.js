@@ -7,7 +7,7 @@ import { setPhoneNo } from "../../utils/consts/api";
 export function* setPhoneNoSaga(action) {
   try {
     const resp = yield setPhoneNo(action.payload);
-    yield put(actions.getPhoneNo(resp));
+    yield put(actions.getPhoneNo(resp.data));
   } catch (error) {
     yield put(actions.getError(error));
     reject(error);
