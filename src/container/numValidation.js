@@ -26,13 +26,14 @@ const NumValidation = (props) => {
     };
 
     useEffect(() => {
-            dispatch(setPhoneNo(number))
+        console.log("Effect-APICalling", number)
+        dispatch(setPhoneNo(number))
     }, [number]);
 
     const numRes = useSelector(({ numRes }) => numRes)
 
     useEffect(() => {
-        console.log(numRes,"numRes")
+        console.log(numRes, "numRes")
     }, [numRes]);
 
     return (
@@ -61,14 +62,14 @@ const NumValidation = (props) => {
                 <Paper elevation={3} className={classes.paperStyle}>
                     <div className="row">
                         <div className="col-sm-12 col-12">
-                        <TextField
+                            <TextField
                                 label="Contact Number"
                                 id="outlined-size-small"
                                 variant="outlined"
                                 size="small"
                                 value={phone}
                                 onChange={({ target: { value } }) => setPhone(value)}
-                                onBlur={()=>setNum(phone)}
+                                onBlur={() => setNum(phone)}
                             />
                         </div>
                     </div>
