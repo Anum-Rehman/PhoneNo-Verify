@@ -8,16 +8,23 @@ const useStyles = makeStyles((theme) => ({
     paperStyle: {
         marginTop: 20,
         padding: 20,
-        width: 400,
-        margin: 'auto'
+        width: 600,
+        margin: 'auto',
     },
-    timeHead: {
-        fontSize: 20,
-        fontFamily: "Times New Roman"
+    square: {
+        width: theme.spacing(3),
+        height: theme.spacing(3),
+        marginTop: 10
     },
-    time: {
-        color: 'gray',
-        fontFamily: "Times New Roman"
+    btn: {
+        textTransform: 'capitalize'
+    },
+    pos: {
+        marginBottom: 12,
+    },
+    inputGrid: {
+        margin: 'auto',
+        width: 400
     }
 }));
 
