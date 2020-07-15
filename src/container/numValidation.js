@@ -31,7 +31,7 @@ export default function NumValidation() {
 
     useEffect(() => {
         console.log("Effect-APICalling", property.number)
-        if(property.number !== 0){
+        if (property.number !== 0) {
             dispatch(setPhoneNo(property.number))
         }
     }, [property.number]);
@@ -59,10 +59,10 @@ export default function NumValidation() {
         });
     };
 
-    const testNumber = () =>{
+    const testNumber = () => {
         var num = phonenNo.textmask;
-        
-        console.log(num,"num")
+
+        console.log(num, "num")
     }
     return (
         <Container className={classes.root}>

@@ -4,6 +4,7 @@ import { put } from "redux-saga/effects";
 import * as actions from "../actions";
 import { setPhoneNo } from "../../utils/consts/api";
 
+//calling saga functions 
 export function* setPhoneNoSaga(action) {
   try {
     const resp = yield setPhoneNo(action.payload);

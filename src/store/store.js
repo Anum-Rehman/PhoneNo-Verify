@@ -4,7 +4,8 @@ import appReducer from "./reducers";
 import { compose, applyMiddleware, createStore } from 'redux';
 
 const sagaMiddleware = createSagaMiddleware();
-console.log("Store")
+
+//calling store functions
 const store = createStore(
     appReducer,
     compose(

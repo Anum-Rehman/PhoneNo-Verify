@@ -1,5 +1,6 @@
 import { PHONE_GET, PHONE_SET, PHONE_ERROR } from "../types";
 
+//action for getting PhoneNo 
 export const getPhoneNo = (resp) => {
     return {
         type: PHONE_GET,
@@ -7,6 +8,7 @@ export const getPhoneNo = (resp) => {
     }
 }
 
+//action for setting PhoneNo
 export const setPhoneNo = (payload) => {
     return {
         type: PHONE_SET,
@@ -14,6 +16,7 @@ export const setPhoneNo = (payload) => {
     }
 }
 
+//action for catching error
 export const getError = (error) => {
     return {
         type: PHONE_ERROR,
