@@ -1,9 +1,8 @@
 import { PHONE_GET, PHONE_SET } from "../types";
 
-export const getPhoneNo = (phoneNo) => {
+export const getPhoneNo = () => {
     return {
-        type: PHONE_GET,
-        payload: phoneNo
+        type: PHONE_GET
     }
 }
 

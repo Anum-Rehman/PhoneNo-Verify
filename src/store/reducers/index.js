@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { rateReducer } from "./phoneno";
+import { numReducer } from "./phoneno";
 
 const appReducer = combineReducers({
-    rate: rateReducer
+    phoneRes: numReducer,
 });
 
 export default appReducer;

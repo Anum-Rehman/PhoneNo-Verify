@@ -1,10 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NumValidation from './container/numValidation'
 
 function App() {
   return (
-    <h1>Validate Phone No!</h1>
+    <NumValidation/>
   );
 }
 
