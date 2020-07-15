@@ -12,7 +12,7 @@ export const numReducer = (state = initialState, action) => {
             return { ...state, numRes: action.payload, loading: false };
         case PHONE_GET:
             return { ...state, numRes: action.payload, loading: false };
-        case PHONE_ERROR:      
+        case PHONE_ERROR:
             return { ...state, loading: false, error: action.payload };
         default:
             return state;
