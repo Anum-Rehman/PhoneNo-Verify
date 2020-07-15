@@ -9,7 +9,6 @@ export const getPhoneNo = (resp) => {
 }
 
 export const setPhoneNo = (payload) => {
-    console.log("Action", payload)
     return {
         type: PHONE_SET,
         payload: payload
