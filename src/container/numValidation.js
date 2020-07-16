@@ -110,7 +110,7 @@ export default function NumValidation() {
     }
     return (
         <Container className={classes.root}>
-           <Snackbar
+            <Snackbar
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',
@@ -128,7 +128,7 @@ export default function NumValidation() {
                 }
             />
             <Card className={classes.paperStyle}>
-            <Grid container spacing={3} className={classes.inputGrid}>
+                <Grid container spacing={3} className={classes.inputGrid}>
                     <Grid item xs={1}>
                         <Avatar variant="square" className={classes.square} src={`https://www.countryflags.io/${country}/shiny/64.png`} />
                     </Grid>
@@ -165,43 +165,46 @@ export default function NumValidation() {
                         <h6>Local Format:</h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                        {property.local_format}
-                    </Grid>
-
-                    <Grid item xs={12} sm={6}>
-                        <h6>Intl. Format:</h6>
+                            <h6>Local Format:</h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                        {property.international_format}
-                    </Grid>
+                            {property.local_format}
+                        </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                        <h6>Country:</h6>
+                        <Grid item xs={12} sm={6}>
+                            <h6>Intl. Format:</h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                        {property.country_name}
-                    </Grid>
+                            {property.international_format}
+                        </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                        <h6>Location:</h6>
+                        <Grid item xs={12} sm={6}>
+                            <h6>Country:</h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                        {property.location}
-                    </Grid>
+                            {property.country_name}
+                        </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                        <h6>Carrier:</h6>
+                        <Grid item xs={12} sm={6}>
+                            <h6>Location:</h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                        {property.carrier}
-                    </Grid>
+                            {property.location}
+                        </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                        <h6>Line Type:</h6>
+                        <Grid item xs={12} sm={6}>
+                            <h6>Carrier:</h6>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                        {property.line_type}
-                    </Grid>
+                            {property.carrier}
+                        </Grid>
+
+                        <Grid item xs={12} sm={6}>
+                            <h6>Line Type:</h6>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            {property.line_type}
+                        </Grid>
                     </Grid>
 
                 </CardContent>
