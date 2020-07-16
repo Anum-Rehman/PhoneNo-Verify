@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar, Card, Container, Grid, Snackbar, IconButton, Button, CircularProgress } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import { Avatar, Card, Container, Grid, Button, CircularProgress } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux'
 import { setPhoneNo } from '../store/actions';
 import useStyles from './styles';
@@ -101,15 +100,15 @@ export default function NumValidation() {
 
     //verify button click
     const testNumber = () => setProperty({ ...property, loading: true, number: phoneNo });
-    
+
     return (
         <Container className={classes.root}>
             <Toaster
-            property={property}
-            close={handleClose}
-            onClick={handleClose}
+                property={property}
+                close={handleClose}
+                onClick={handleClose}
             />
-        
+
             <Card className={classes.paperStyle}>
                 <Grid container spacing={3} className={classes.inputGrid}>
                     <Grid item xs={1}>
