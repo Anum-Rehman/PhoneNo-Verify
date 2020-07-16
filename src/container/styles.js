@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     progress: {
         color: 'green',
         margin: 'auto',
+    },
+    detail: {
+        marginBottom: -20
     }
 }));
 
