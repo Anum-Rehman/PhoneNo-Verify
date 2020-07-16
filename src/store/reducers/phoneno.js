@@ -5,6 +5,7 @@ const initialState = {
     loading: true,
     error: null
 };
+
 //functions for reducers 
 export const numReducer = (state = initialState, action) => {
     switch (action.type) {
