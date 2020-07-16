@@ -5,11 +5,10 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import NumValidation from './container/numValidation'
 import store from './store/store';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <Provider store={store}>
-      <NumValidation/>
+    <NumValidation />
   </Provider>,
   document.getElementById('root')
 );
