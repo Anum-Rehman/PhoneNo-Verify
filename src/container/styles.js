@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     inputGrid: {
         margin: 'auto',
         width: 400
+    },
+    progress: {
+        color: 'green',
+        margin: 'auto',
     }
 }));
 

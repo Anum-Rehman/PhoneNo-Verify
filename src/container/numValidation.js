@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar, Card, CardContent, Container, Grid, Snackbar, IconButton, Paper, Button, TextField } from '@material-ui/core';
+import { Avatar, Card, CardContent, Container, Grid, Snackbar, IconButton, Button, TextField, CircularProgress } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CancelIcon from '@material-ui/icons/Cancel';
@@ -30,33 +30,34 @@ export default function NumValidation() {
         local_format: '4158586273',
         location: 'Novato',
         phoneNumber: '',
-        valid: true
+        valid: true,
+        numValidated: true,
+        loading: false
     })
 
+     // handling close
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
-
         setProperty({ ...property, open: false });
     };
 
+    // calling api on componentDidMount
     useEffect(() => {
-        console.log("Effect-APICalling", property.number)
         if (property.number !== 0) {
             dispatch(setPhoneNo(property.number))
         }
     }, [property.number]);
 
-    const res = useSelector(({ res }) => res);
-
+    // getting api res from reducer
     const phoneRes = useSelector(({ phoneRes }) => phoneRes)
 
+    // once got res/ api called, set initials
     useEffect(() => {
         if(phoneRes.numRes){
-            console.log(phoneRes,"data")
             var data = phoneRes.numRes
-            if(data.valid){
+            if(data){
                 setProperty({
                     ...property,
                     carrier: data.carrier,
@@ -68,14 +69,8 @@ export default function NumValidation() {
                     local_format: data.local_format,
                     location: data.location,
                     phoneNumber: data.number,
-                    valid: data.valid
-                });
-            }
-            else{
-                setProperty({
-                    ...property,
-                    error: "Invalid Number",
-                    open: true,
+                    valid: data.valid,
+                    loading: false
                 });
             }
         }
@@ -84,10 +79,12 @@ export default function NumValidation() {
                 ...property,
                 error: phoneRes.error.message,
                 open: true,
+                loading: false
             });
         }
     }, [phoneRes]);
 
+    //Validating number on blur
     const handleBlur = () => {
         if (phoneNo !== '') {
             var num = phoneNo.toString()
@@ -98,17 +95,18 @@ export default function NumValidation() {
             if (phoneNum.isValid()) {
                 setCountry(country)
                 setphone(num)
-                setProperty({ ...property, validateError: '', numError: false })
+                setProperty({ ...property, validateError: '', numError: false, numValidated: false })
             }
             else {
-                setProperty({ ...property, validateError: 'Invalid Number', numError: true })
+                setProperty({ ...property, validateError: 'Invalid Number', numError: true, numValidated: true })
             }
         }
     }
 
+    //verify button click
     const testNumber = () => {
         var num = phoneNo;
-        setProperty({ ...property, number: num })
+        setProperty({ ...property, loading: true, number: num })
     }
     return (
         <Container className={classes.root}>
@@ -147,13 +145,15 @@ export default function NumValidation() {
                         />
                     </Grid>
                     <Grid item xs={3} sm={5}>
-                        <Button variant="contained" color="primary" href="#contained-buttons" className={classes.btn} onClick={testNumber}>
+                        <Button variant="contained" color="primary" href="#contained-buttons" 
+                        className={classes.btn} onClick={testNumber} disabled={property.numValidated}>
                             Verify
                             </Button>
                     </Grid>
                 </Grid>
 
-                <CardContent>
+               { property.loading ? <CircularProgress className={classes.progress} /> :
+               <CardContent>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
                         <h6>Valid</h6>
@@ -205,6 +205,7 @@ export default function NumValidation() {
                     </Grid>
 
                 </CardContent>
+                }
             </Card>
         </Container>
     );
